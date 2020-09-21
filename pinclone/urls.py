@@ -13,17 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.conf.urls import url, include
+from django.urls import include, path
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    url(r'^admin', admin.site.urls),
-    url(r'^account/', include('account.urls', namespace='account')),
-    url(r'^', include('pinterest.urls', namespace='pinterest')),
+    path('admin/', admin.site.urls),
+    path('account/', include('account.urls')),
+    path('', include('pinterest.urls')),
 ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL,
-                            document_root=settings.MEDIA_ROOT)
+                          document_root=settings.MEDIA_ROOT)
+# the Django development server will be in charge of serving the media files during development.
+# The static() helper function is suitable for development 
+# but not for production use. Never serve your static files with Django in a production environment.

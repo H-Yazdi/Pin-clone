@@ -6,7 +6,7 @@ class Profile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     date_of_birth = models.DateTimeField(
         blank=True,
-        # get_user_model(),
+   
         null=True
     )
     photo = models.ImageField(

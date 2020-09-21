@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "/home/moso/.virtualenvs/Pin-clone-LD7GQZyY/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true
+}
